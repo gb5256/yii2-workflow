@@ -11,5 +11,5 @@ interface IWorkflowDefinitionProvider
 	 * Returns the workflow definition in the form of an array.
 	 * @return array
 	 */
-	public function getDefinition();
+	public function getDefinition($workflowId);
 }
