@@ -43,7 +43,7 @@ class PhpClassLoader extends WorkflowDefinitionLoader {
 				.' doesn\'t implement \raoul2000\workflow\source\file\IWorkflowDefinitionProvider');
 		}
 
-		return $this->parse($workflowId, $defProvider->getDefinition(), $source);
+		return $this->parse($workflowId, $defProvider->getDefinition($workflowId), $source);
 	}
 
 	/**
