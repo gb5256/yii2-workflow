@@ -352,14 +352,14 @@ class SimpleWorkflowBehavior extends Behavior
 	 * @return boolean TRUE if the operation succeeded, FALSE otherwise
 	 * @throws WorkflowException
 	 */
-	public function enterWorkflow($workflowId = null, $id = null)
+	public function enterWorkflow($workflowId = null)
 	{
 		$result = false;
 		if ( $this->hasWorkflowStatus() ) {
 			throw new WorkflowException("Model already in a workflow");
 		}
 		$wId = ( $workflowId === null ? $this->getDefaultWorkflowId() : $workflowId);
-		$workflow = $this->_wfSource->getWorkflow($wId, $id);
+		$workflow = $this->_wfSource->getWorkflow($wId);
 		if ($workflow !== null) {
 			$result = $this->sendToStatusInternal($workflow->getInitialStatusId(), false);
 		} else {
